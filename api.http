@@ -1,0 +1,42 @@
+### Recuperar Data Pelis
+GET http://localhost:1234/movies
+
+### Recuperar Data Pelis por ID
+GET http://localhost:1234/movies/3c140bf5-5db1-11ef-bddf-2cf05d94b0d7
+
+### Recuperar Data TODAS las Pelis por un Genero
+GET http://localhost:1234/movies?genre=Adventure
+
+### Crear una Movie
+
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": "Forrest Gump",
+    "year": 1994,
+    "director": "Robert Zemeckis",
+    "duration": 142,
+    "genre": ["Drama", "Comedy"],
+    "poster": "https://i.ebayimg.com/images/g/qR8AAOSwkvRZzuMD/s-l1600.jpg"
+
+}
+
+### Actualizar una Movie
+
+PATCH  http://localhost:1234/movies/3c140bf5-5db1-11ef-bddf-2cf05d94b0d7
+Content-Type: application/json
+
+{
+    "title": "Forrest Gump",
+    "year": 2000,
+    "director": "Robert Zemeckis",
+    "duration": 142,
+    "genre": ["Drama", "Comedy"],
+    "poster": "https://i.ebayimg.com/images/g/qR8AAOSwkvRZzuMD/s-l1600.jpg",
+    "rate": 5.0
+
+}
+
+### Borrar una Movie
+DELETE http://localhost:1234/movies/3c140bf5-5db1-11ef-bddf-2cf05d94b0d7

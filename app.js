@@ -1,0 +1,23 @@
+import express, { json } from 'express' // require -> commonJS                      
+import { createMoviesRouter } from './routes/movies.js'
+import { MovieModel } from './models/mysql/movie.js'
+import { corsMiddleware } from './middlewares/cors.js'
+
+export const createApp = ({ MovieModel }) => {
+  const app = express()
+  app.use(json())
+  app.use(corsMiddleware)
+  app.disable('x-powered-by') // deshabilitar el header X-Powered-By: Express
+
+  app.use('/movies', createMoviesRouter ({ MovieModel}))
+
+  const PORT = process.env.PORT ?? 1234
+
+  app.listen(PORT, () => {
+    console.log(`server listening on port http://localhost:${PORT}`)
+  })
+  
+}
+
+
+
